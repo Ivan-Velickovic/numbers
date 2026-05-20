@@ -1,0 +1,109 @@
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+body {
+    font-family: monospace;
+    font-size: 1.2rem;
+    margin: 0;
+    padding: 0;
+    background-color: gray;
+}
+
+#input {
+    font-size: 1.2rem;
+    border: 2px solid black;
+    padding: 0.5rem;
+    background-color: #b7b7b7;
+    font-family: monospace;
+    width: 18rem;
+}
+
+#input-value-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex: 3;
+    align-self: right;
+}
+
+#container-value {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    width:  30%;
+}
+
+.label {
+    font-family: Arial;
+    font-size: 0.8rem;
+    margin-bottom: 0;
+}
+
+.bit-option {
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: #424242;
+    cursor: pointer;
+    margin-top: 0;
+}
+
+.bit-option:hover {
+    color: black;
+}
+
+.bit-selected {
+    color: black;
+}
+
+#bit-select-container {
+    display: flex;
+    gap: 1rem;
+}
+
+.value {
+    margin-top: 0;
+}
+
+#history {
+    flex: 1;
+    align-items: left;
+}
+
+.history-value {
+    font-size: 0.9rem;
+    color: #424242;
+    cursor: pointer;
+}
+
+.history-value:hover {
+    color: black;
+}
+
+#history h5 {
+    margin-bottom: 0;
+}
+
+#history-clear {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    color: #545454;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 0.5rem;
+}
+
+#history-clear:hover {
+    color: black;
+}
+
+#binary {
+    font-size: 1.0rem;
+}

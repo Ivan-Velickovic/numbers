@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>numbers</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+    <div id="container">
+        <div id="input-value-container">
+            <div id="input-container">
+                <input id="input" type="text" name="number">
+            </div>
+            <div id="container-value">
+                <div>
+                    <p class="label">dec</p>
+                    <p class="value" id="dec">...</p>
+                </div>
+                <div>
+                    <p class="label">hex</p>
+                    <p class="value" id="hex">...</p>
+                </div>
+                <div>
+                    <div id="bin-container">
+                        <p class="label">bin</p>
+                        <!-- <div id="bit-select-container">
+                            <p id="bit-option-16" class="bit-option">16b</p>
+                            <p id="bit-option-32" class="bit-option">32b</p>
+                            <p id="bit-option-64" class="bit-option bit-selected">64b</p>
+                        </div> -->
+                    </div>
+                    <p class="value" id="binary">...</p>
+                    <!-- <p id="binary-ctz">...</p> -->
+                    <!-- <p id="binary-clz">...</p> -->
+                </div>
+                <div>
+                    <p class="label">size</p>
+                    <p class="value" id="size">...</p>
+                </div>
+            </div>
+        </div>
+        <div id="history">
+            <h5>history</h5>
+            <button id="history-clear">clear</button>
+            <div id="history-values">
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="main.js"></script>
+</body>
+</html>
