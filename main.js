@@ -6,6 +6,7 @@ const hexText = document.getElementById("hex");
 const binaryText = document.getElementById("binary");
 const binaryCtzText = document.getElementById("binary-ctz");
 const binaryClzText = document.getElementById("binary-clz");
+const bits = document.getElementById("bits");
 
 function getHistory() {
     if (window.localStorage.getItem("history") != null) {
@@ -13,6 +14,10 @@ function getHistory() {
     } else {
         return "";
     }
+}
+
+String.prototype.replaceAt = function(index, replacement) {
+    return this.substring(0, index) + replacement + this.substring(index + replacement.length);
 }
 
 let history = getHistory();
@@ -90,10 +95,30 @@ function updateBinaryText(value) {
     const s = binaryString(value);
 }
 
+function bitDiv(value, index) {
+    let bit = document.createElement("div");
+    bit.className = "bit";
+
+    let bitValue = document.createElement("p");
+    bitValue.className = "bit-value";
+    bitValue.textContent = value;
+
+    let bitIndex = document.createElement("p");
+    bitIndex.className = "bit-index";
+    bitIndex.textContent = index;
+
+    bit.appendChild(bitValue);
+    bit.appendChild(bitIndex);
+
+    return bit;
+}
+
 function update(value) {
   var n;
 
   value = valueFromString(value);
+
+  console.log(value);
 
   if (value.startsWith("0x")) {
     n = parseInt(value.slice(2), 16);
@@ -107,8 +132,38 @@ function update(value) {
   decText.textContent = n.toString(10);
   hexText.textContent = "0x" + n.toString(16);
   // binaryText.textContent = binaryString(n);
+  binaryText.textContent = "0b" + n.toString(2);
+  while (bits.firstChild) {
+        bits.removeChild(bits.lastChild);
+  }
+  let bitString = n.toString(2);
+  // for (let i = bitString.length - 1; i >= 0; i--) {
+  //   bits.appendChild(bitDiv(bitString[i], i));
+  // }
+  for (let i = 0; i < bitString.length; i++) {
+    let b = bitDiv(bitString[i], bitString.length - i - 1);
 
-  updateBinaryText(n);
+    b.addEventListener("click", (e) => {
+        console.log(bitString);
+        var updated;
+        if (bitString[i] == '0') {
+            updated = bitString.replaceAt(i, '1');
+        } else if (bitString[i] == '1') {
+            updated = bitString.replaceAt(i, '0');
+        }
+        update("0b" + updated);
+        console.log(updated);
+    });
+
+    if (bitString.length > 1 && i % 2 != 0 && i != 0) {
+        b.children[0].style.borderLeft = 0;
+
+        if (i != bitString.length - 1) {
+            b.children[0].style.borderRight = 0;
+        }
+    }
+    bits.appendChild(b);
+  }
 
   // binaryCtzText.textContent = "ctz: " + Math.ctz32(n);
   // binaryClzText.textContent = "clz: " + Math.clz32(n);

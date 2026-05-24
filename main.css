@@ -66,6 +66,43 @@ body {
     gap: 1rem;
 }
 
+#bits {
+    display: flex;
+}
+
+.bit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bit .bit-value {
+    border: 2px solid black;
+    display: inline;
+    padding: 0.25rem 0.1rem;
+    margin: 0;
+    cursor: pointer;
+}
+
+.bit .bit-value:hover {
+    background-color: #545454;
+}
+
+/*.bit:nth-child(odd) .bit-value {
+    border-left: 0;
+}
+
+.bit:nth-last-child() .bit-value {
+    border-right: 2px solid black;
+}*/
+
+.bit .bit-index {
+    font-size: 0.8rem;
+    padding: 0;
+    margin: 0;
+    font-family: Arial;
+}
+
 .value {
     margin-top: 0;
 }
@@ -104,6 +141,6 @@ body {
     color: black;
 }
 
-#binary {
+/*#binary {
     font-size: 1.0rem;
-}
+}*/
